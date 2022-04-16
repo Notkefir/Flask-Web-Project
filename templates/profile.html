@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h2>Профиль</h2>
+<br/>
+<div class="card">
+  <div class="card-header">
+    {{ current_user.name }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">My profile</h5>
+    <p class="card-text">
+        <strong>Name:</strong>{{ current_user.name }}<br/>
+        <strong>Surname:</strong>{{ current_user.surname }}<br/>
+        <strong>Age:</strong>{{ current_user.age }}<br/>
+        <strong>Specialization:</strong>{{ current_user.specialization }}<br/>
+        <strong>Cost:</strong>{{ current_user.cost }}<br/>
+        <strong>Address:</strong>{{ current_user.address }}<br/>
+        <strong>email:</strong>{{ current_user.email }}<br/>
+    </p>
+    <a href="/logout" class="btn btn-primary">Выйти</a>
+  </div>
+</div>
+
+{%endblock%}

@@ -1,14 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Tutors</title>
-</head>
-<body>
-<a>
-    <h1 class="h1 text-center mx-auto mt-4 py-5"><strong>Найдите себе<br>идеального репетитора</strong></h1>
-</a>
+{% extends "base.html" %}
+{% block main %}
+<div class="container text-center">
+    <div id="carousel" class="carousel slide d-inline-block" data-ride="carousel">
+        <!-- Индикаторы -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="/static/img/fon1.jpg" alt="...">
+                <div class="carousel-caption">
+                    <h5>Найдите для себя репетитора</h5>
+                    <p><a class="btn btn-primary " href="/register">Зарегистрироваться</a>
+                        <a class="btn btn-success" href="/login">Войти</a>
+                    </p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="/static/img/fon2.jpeg" alt="...">
+                <div class="carousel-caption">
+                    <h5>Эффективно</h5>
+                    <p>Сэкономьте кучу своего времени на поиски преподавателей</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="/static/img/fon3.jpg" alt="...">
+                <div class="carousel-caption">
+                    <h5>Удобство</h5>
+                    <p>Простой интерфейс, в котором разберутся все без исключения</p>
+                </div>
+            </div>
+        </div>
+        <!-- Элементы управления -->
+        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Предыдущий</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Следующий</span>
+        </a>
+    </div>
 
-  </body>
-
-</html>
+</div>
+{%endblock%}
