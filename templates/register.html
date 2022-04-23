@@ -59,24 +59,6 @@
         {% endfor %}
     </p>
     <p>
-        {{ form.specialization.label }}<br>
-        {{ form.specialization(class="form-control") }}<br>
-        {% for error in form.specialization.errors %}
-            <p class="alert alert-danger" role="alert">
-                {{ error }}
-            </p>
-        {% endfor %}
-    </p>
-    <p>
-        {{ form.cost.label }}<br>
-        {{ form.cost(class="form-control") }}<br>
-        {% for error in form.cost.errors %}
-            <p class="alert alert-danger" role="alert">
-                {{ error }}
-            </p>
-        {% endfor %}
-    </p>
-    <p>
         {{ form.address.label }}<br>
         {{ form.address(class="form-control") }}<br>
         {% for error in form.address.errors %}
@@ -84,6 +66,19 @@
                 {{ error }}
             </p>
         {% endfor %}
+    </p>
+    <p>
+        {{ form.about.label }}<br>
+        {{ form.about(class="form-control") }}<br>
+        {% for error in form.about.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        <input type="radio" name="specialization" id="specialization1" value="Репетитор"> Репетитор </input>
+        <input type="radio" name="specialization" id="specialization2" value="Ученик"> Ученик </input><br>
     </p>
     <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
     {{message}}

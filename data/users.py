@@ -22,7 +22,8 @@ class User(SqlAlchemyBase, UserMixin, SerializerMixin):
                             nullable=True)
     specialization = sqlalchemy.Column(sqlalchemy.String,
                                  nullable=False)
-    cost = sqlalchemy.Column(sqlalchemy.Float, nullable=False)
+    about = sqlalchemy.Column(sqlalchemy.String,
+                                 nullable=False)
     address = sqlalchemy.Column(sqlalchemy.String,
                                 nullable=True)
     email = sqlalchemy.Column(sqlalchemy.String,
@@ -35,6 +36,7 @@ class User(SqlAlchemyBase, UserMixin, SerializerMixin):
                                       default=datetime.datetime.now)
 
     proposal = orm.relation("Proposal", back_populates='user')
+
 
     def set_password(self, password):
         self.hashed_password = generate_password_hash(password)

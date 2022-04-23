@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>TINYSTEPS</title>
+  <title>Tutors</title>
   <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -15,23 +15,23 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="#">Все объявления</a>
+						<a class="nav-link" href="/allproposal">Все объявления</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Доступные обЪявления</a>
+						<a class="nav-link" href="/about">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/contacts">Contact</a>
 					</li>
 					{% if current_user.is_authenticated %}
+						{% if current_user.specialization == 'Репетитор' %}
+							<li class="nav-item">
+								<a class="nav-link" href="/proposal">Добавить запись</a>
+							</li>
+						{% endif %}
 						<li class="nav-item">
 							<a class="nav-link" href="/profile">Профиль</a>
 						</li>
-					{% endif %}
-					<li class="nav-item">
-						<a class="nav-link" href="#">Services</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Contact</a>
-					</li>
-					{% if current_user.is_authenticated %}
 						<li class="nav-item">
 							<a class="nav-link" href="/logout">Выйти</a>
 						</li>

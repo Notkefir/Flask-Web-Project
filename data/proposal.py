@@ -12,7 +12,8 @@ class Proposal(SqlAlchemyBase, SerializerMixin):
     id = sqlalchemy.Column(sqlalchemy.Integer,
                            primary_key=True, autoincrement=True)
     title = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    phone_number = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+    phone_number = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    coast = sqlalchemy.Column(sqlalchemy.Float, nullable=True)
     created_date = sqlalchemy.Column(sqlalchemy.DateTime,
                                      default=datetime.datetime.now)
 

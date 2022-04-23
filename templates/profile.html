@@ -14,12 +14,40 @@
         <strong>Surname:</strong>{{ current_user.surname }}<br/>
         <strong>Age:</strong>{{ current_user.age }}<br/>
         <strong>Specialization:</strong>{{ current_user.specialization }}<br/>
-        <strong>Cost:</strong>{{ current_user.cost }}<br/>
+        <strong>About me:</strong>{{ current_user.about }}<br/>
         <strong>Address:</strong>{{ current_user.address }}<br/>
         <strong>email:</strong>{{ current_user.email }}<br/>
     </p>
     <a href="/logout" class="btn btn-primary">Выйти</a>
+      <a href="/delete_account/{{ current_user.id }}" class="btn btn-primary">Удалить</a>
   </div>
-</div>
 
+</div>
+<br/>
+{% for item in proposal %}
+<div class="col-md6 border rounded">
+    <h4>{{item.title}}</h4>
+    <div>
+        Цена - {{item.coast}}₽ / час
+    </div>
+    {% if current_user.is_authenticated and current_user.specialization == 'Репетитор'%}
+    <div>
+        Автор - {{item.user.surname}}
+    </div>
+    {% endif %}
+    <div>
+        Дата написания - {{item.created_date}}
+        {% if current_user.is_authenticated and current_user == item.user and current_user.specialization == 'Репетитор' %}
+    <div>
+        <a href="/proposals/{{ item.id }}" class="btn btn-warning">
+            Изменить
+        </a>
+        <a href="/proposals_delete/{{ item.id }}" class="btn btn-danger">
+            Удалить
+        </a>
+    </div>
+{% endif %}
+    </div>
+</div>
+{% endfor %}
 {%endblock%}

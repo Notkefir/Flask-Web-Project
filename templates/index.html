@@ -13,9 +13,11 @@
                 <img class="d-block w-100" src="/static/img/fon1.jpg" alt="...">
                 <div class="carousel-caption">
                     <h5>Найдите для себя репетитора</h5>
+                    {% if not current_user.is_authenticated %}
                     <p><a class="btn btn-primary " href="/register">Зарегистрироваться</a>
                         <a class="btn btn-success" href="/login">Войти</a>
                     </p>
+                    {% endif %}
                 </div>
             </div>
             <div class="carousel-item">

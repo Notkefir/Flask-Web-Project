@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Все объявления</h1>
+{% for item in proposal %}
+{% if item.user.specialization == 'Репетитор'%}
+<div class="col-md6 border rounded">
+    <h4>{{item.title}}</h4>
+    <div>
+        {{item.user.name}} {{item.user.surname}}
+    </div>
+    <div>
+        Цена - {{item.coast}}₽ / час
+    </div>
+    <div>
+        Контактные данные - {{item.user.email}}, {{item.phone_number}}
+    </div>
+    <div>
+        Автор - {{item.user.surname}}, Дата написания - {{item.created_date}}
+    </div>
+    {% if current_user.is_authenticated and current_user == item.user and current_user.specialization == 'Репетитор'%}
+    <div>
+        <a href="/proposals/{{ item.id }}" class="btn btn-warning">
+            Изменить
+        </a>
+        <a href="/proposals_delete/{{ item.id }}" class="btn btn-danger">
+            Удалить
+        </a>
+    </div>
+{% endif %}
+    {% if current_user.is_authenticated and current_user.specialization == 'Ученик' %}
+        <div>
+        <a href="/addproposals/{{ item.id }}" class="btn btn-warning">
+            Добавить
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endif %}
+{% endfor %}
+{% endblock %}

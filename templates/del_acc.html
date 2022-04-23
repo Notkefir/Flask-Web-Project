@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block main %}
+
+
+
+
+<div class="card">
+    <form method="post" enctype="multipart/form-data">
+  <h5 class="card-header">Delete acc</h5>
+  <div class="card-body">
+    <h5 class="card-title">Are you sure you want to delete your account?</h5>
+    <input type="checkbox" name='delete_agree' class="form-check-input" id="exampleCheck1" required>
+                                            <label class="form-check-label" style="color: red;" for="exampleCheck1">I
+                                                agree</label>
+    <button type="submit" name="delete_button" class="btn btn-danger"> delete </button>
+  </div>
+        </form>
+    <div style="color: red;">{{message}}</div>
+</div>
+
+{% endblock %}
